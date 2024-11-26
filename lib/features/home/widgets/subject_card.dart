@@ -26,30 +26,31 @@ class SubjectCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Flexible(
-            child:  ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.network(
-                                  imageUrl,
-                                  fit: BoxFit.cover,
-                      width: context.screenWidth >= 600
-                          ? context.screenWidth * 0.3
-                          :context.screenWidth * 0.4,
-                                  errorBuilder: (context, error, stackTrace) {
-                  return const Text("loading");
-                                  },
-                                ),
-                ),
-          ),
+          ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                                imageUrl,
+                                fit: BoxFit.cover,
+                    width: context.screenWidth >= 600
+                        ? context.screenWidth * 0.3
+                        :context.screenWidth * 0.4,
+                                errorBuilder: (context, error, stackTrace) {
+                return const Text("loading");
+                                },
+                              ),
+              ),
           const SizedBox(height: 12),
           Text(
             courseTitle,
-            style: subtitle4.copyWith(color: silverChalice.shade800),
+            style: subtitle4.copyWith(color: silverChalice.shade900),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           const SizedBox(height: 6),
-          Text(description)
+          Text(description,
+            style: subtitle2.copyWith(color: silverChalice.shade500),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,)
         ],
       ),
     );

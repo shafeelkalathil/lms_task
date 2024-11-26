@@ -100,6 +100,7 @@ class _SubjectsScreenState extends State<SubjectsScreen> {
                                     onTap: () {
                                       context.router.push(
                                         ModuleRoute(
+                                          subjectTitle: subjectData.title,
                                             subjectId : subjectData.id),
                                       );
                                     },

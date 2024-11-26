@@ -103,7 +103,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 return CustomGridView(
                                   childAspectRatio: context.screenWidth >= 600
                                       ? 0.4 + context.screenWidth * 0.001
-                                      : 0.1 + context.screenWidth * 0.002,
+                                      : 0.1 + context.screenWidth * 0.0016,
                                   itemLength: filteredData.length,
                                   itemBuilder: (context, index) {
                                     final subjectData = filteredData[index];
@@ -111,6 +111,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                       onTap: () {
                                         context.router.push(
                                           ModuleRoute(
+                                            subjectTitle: subjectData.title,
                                             subjectId : subjectData.id),
                                         );
                                       },

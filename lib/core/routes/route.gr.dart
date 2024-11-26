@@ -29,17 +29,77 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ModuleOverViewScreen]
+class ModuleOverViewRoute extends PageRouteInfo<ModuleOverViewRouteArgs> {
+  ModuleOverViewRoute({
+    Key? key,
+    required String title,
+    required String description,
+    required String videoUrl,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ModuleOverViewRoute.name,
+          args: ModuleOverViewRouteArgs(
+            key: key,
+            title: title,
+            description: description,
+            videoUrl: videoUrl,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ModuleOverViewRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<ModuleOverViewRouteArgs>();
+      return ModuleOverViewScreen(
+        key: args.key,
+        title: args.title,
+        description: args.description,
+        videoUrl: args.videoUrl,
+      );
+    },
+  );
+}
+
+class ModuleOverViewRouteArgs {
+  const ModuleOverViewRouteArgs({
+    this.key,
+    required this.title,
+    required this.description,
+    required this.videoUrl,
+  });
+
+  final Key? key;
+
+  final String title;
+
+  final String description;
+
+  final String videoUrl;
+
+  @override
+  String toString() {
+    return 'ModuleOverViewRouteArgs{key: $key, title: $title, description: $description, videoUrl: $videoUrl}';
+  }
+}
+
+/// generated route for
 /// [ModuleScreen]
 class ModuleRoute extends PageRouteInfo<ModuleRouteArgs> {
   ModuleRoute({
     Key? key,
     required int subjectId,
+    required String subjectTitle,
     List<PageRouteInfo>? children,
   }) : super(
           ModuleRoute.name,
           args: ModuleRouteArgs(
             key: key,
             subjectId: subjectId,
+            subjectTitle: subjectTitle,
           ),
           initialChildren: children,
         );
@@ -53,6 +113,7 @@ class ModuleRoute extends PageRouteInfo<ModuleRouteArgs> {
       return ModuleScreen(
         key: args.key,
         subjectId: args.subjectId,
+        subjectTitle: args.subjectTitle,
       );
     },
   );
@@ -62,15 +123,18 @@ class ModuleRouteArgs {
   const ModuleRouteArgs({
     this.key,
     required this.subjectId,
+    required this.subjectTitle,
   });
 
   final Key? key;
 
   final int subjectId;
 
+  final String subjectTitle;
+
   @override
   String toString() {
-    return 'ModuleRouteArgs{key: $key, subjectId: $subjectId}';
+    return 'ModuleRouteArgs{key: $key, subjectId: $subjectId, subjectTitle: $subjectTitle}';
   }
 }
 
@@ -80,12 +144,14 @@ class ModuleVideoRoute extends PageRouteInfo<ModuleVideoRouteArgs> {
   ModuleVideoRoute({
     Key? key,
     required int moduleId,
+    required String moduleTitle,
     List<PageRouteInfo>? children,
   }) : super(
           ModuleVideoRoute.name,
           args: ModuleVideoRouteArgs(
             key: key,
             moduleId: moduleId,
+            moduleTitle: moduleTitle,
           ),
           initialChildren: children,
         );
@@ -99,6 +165,7 @@ class ModuleVideoRoute extends PageRouteInfo<ModuleVideoRouteArgs> {
       return ModuleVideoScreen(
         key: args.key,
         moduleId: args.moduleId,
+        moduleTitle: args.moduleTitle,
       );
     },
   );
@@ -108,15 +175,18 @@ class ModuleVideoRouteArgs {
   const ModuleVideoRouteArgs({
     this.key,
     required this.moduleId,
+    required this.moduleTitle,
   });
 
   final Key? key;
 
   final int moduleId;
 
+  final String moduleTitle;
+
   @override
   String toString() {
-    return 'ModuleVideoRouteArgs{key: $key, moduleId: $moduleId}';
+    return 'ModuleVideoRouteArgs{key: $key, moduleId: $moduleId, moduleTitle: $moduleTitle}';
   }
 }
 

@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:lms_task/core/utils/extension/size_extension.dart';
 import '../../../core/constants/color_constants.dart';
 import '../../../core/routes/route.dart';
@@ -15,9 +16,10 @@ import '../view_model/module_view_model.dart';
 
 @RoutePage()
 class ModuleScreen extends StatefulWidget {
-  const ModuleScreen({super.key, required this.subjectId});
+  const ModuleScreen({super.key, required this.subjectId, required this.subjectTitle});
 
   final int subjectId;
+  final String subjectTitle;
 
   @override
   State<ModuleScreen> createState() => _ModuleScreenState();
@@ -30,7 +32,7 @@ class _ModuleScreenState extends State<ModuleScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Modules',),
+      appBar: CustomAppBar(title: '${widget.subjectTitle} Modules',),
       body: SafeArea(
         child: Column(
           children: [
@@ -97,6 +99,7 @@ class _ModuleScreenState extends State<ModuleScreen> {
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(vertical: 8.0), // Spacing between cards
                                         child: Card(
+                                          color: orange.shade50,
                                           elevation: 3,
                                           shadowColor: Colors.grey.withOpacity(0.2),
                                           shape: RoundedRectangleBorder(
@@ -116,9 +119,13 @@ class _ModuleScreenState extends State<ModuleScreen> {
                                                   color: silverChalice.shade500
                                               ),
                                             ),
+                                              trailing: const Icon(Iconsax.arrow_right),
                                             onTap: () {
                                               context.router.push(
-                                                ModuleVideoRoute(moduleId: moduleData.id),
+                                                ModuleVideoRoute(
+                                                    moduleId: moduleData.id,
+                                                    moduleTitle: moduleData.title
+                                                ),
                                               );
                                             },
                                           ),

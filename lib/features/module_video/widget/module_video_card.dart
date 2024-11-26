@@ -5,9 +5,9 @@ import '../../../core/utils/styles/text_style.dart';
 import '../../../gen/assets.gen.dart';
 import '../../shared/widgets/video_player.dart';
 
-class DoubtItem extends StatelessWidget {
+class ModuleVideoItem extends StatelessWidget {
 
-  const DoubtItem({
+  const ModuleVideoItem({
     required this.description,
     required this.videoUrl,
     super.key,
