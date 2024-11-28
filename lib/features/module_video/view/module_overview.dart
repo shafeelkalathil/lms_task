@@ -10,10 +10,11 @@ import '../../shared/widgets/video_player.dart';
 
 @RoutePage()
 class ModuleOverViewScreen extends StatelessWidget {
-  const ModuleOverViewScreen({super.key, required this.title, required this.description, required this.videoUrl});
+  const ModuleOverViewScreen({super.key, required this.title, required this.description, required this.videoUrl, required this.videoType});
   final String title;
   final String description;
   final String videoUrl;
+  final String videoType;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,8 @@ class ModuleOverViewScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CustomVideoPlayer(
-                  url: videoUrl,
+                  videoUrl: videoUrl,
+                  videoType: videoType,
                 ),
                 const SizedBox(height: 20,),
                 Text(

@@ -36,6 +36,7 @@ class ModuleOverViewRoute extends PageRouteInfo<ModuleOverViewRouteArgs> {
     required String title,
     required String description,
     required String videoUrl,
+    required String videoType,
     List<PageRouteInfo>? children,
   }) : super(
           ModuleOverViewRoute.name,
@@ -44,6 +45,7 @@ class ModuleOverViewRoute extends PageRouteInfo<ModuleOverViewRouteArgs> {
             title: title,
             description: description,
             videoUrl: videoUrl,
+            videoType: videoType,
           ),
           initialChildren: children,
         );
@@ -59,6 +61,7 @@ class ModuleOverViewRoute extends PageRouteInfo<ModuleOverViewRouteArgs> {
         title: args.title,
         description: args.description,
         videoUrl: args.videoUrl,
+        videoType: args.videoType,
       );
     },
   );
@@ -70,6 +73,7 @@ class ModuleOverViewRouteArgs {
     required this.title,
     required this.description,
     required this.videoUrl,
+    required this.videoType,
   });
 
   final Key? key;
@@ -80,9 +84,11 @@ class ModuleOverViewRouteArgs {
 
   final String videoUrl;
 
+  final String videoType;
+
   @override
   String toString() {
-    return 'ModuleOverViewRouteArgs{key: $key, title: $title, description: $description, videoUrl: $videoUrl}';
+    return 'ModuleOverViewRouteArgs{key: $key, title: $title, description: $description, videoUrl: $videoUrl, videoType: $videoType}';
   }
 }
 

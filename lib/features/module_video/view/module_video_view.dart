@@ -117,7 +117,8 @@ class _ModuleVideoScreenState extends State<ModuleVideoScreen> {
                                                 ModuleOverViewRoute(
                                                   description: moduleData.description,
                                                   title: moduleData.title,
-                                                  videoUrl: moduleData.videoUrl
+                                                  videoUrl: moduleData.videoUrl,
+                                                  videoType: moduleData.videoType
                                                 ),
                                               );
                                             },
